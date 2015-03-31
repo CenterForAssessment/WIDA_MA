@@ -35,7 +35,7 @@ READING_2014.config <- list(
 WIDA_MA_SGP <- updateSGP(
 		WIDA_MA_SGP,
 		WIDA_MA_Data_LONG_2014,
-		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP", "visualizeSGP"),
+		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
 		sgp.percentiles=TRUE,
 		sgp.projections=TRUE,
 		sgp.projections.lagged=TRUE,

@@ -51,4 +51,4 @@ WIDA_MA_SGP <- updateSGP(
 
 ### Save results
 
-#save(WIDA_MA_SGP, file="Data/WIDA_MA_SGP.Rdata")
+save(WIDA_MA_SGP, file="Data/WIDA_MA_SGP.Rdata")
