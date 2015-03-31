@@ -1,6 +1,6 @@
 #########################################################################################
 ###
-### Script to run WIDA Massachusetts Analyses
+### Script for calculating SGPs for 2014 for WIDA/ACCESS/MA
 ###
 #########################################################################################
 
@@ -12,7 +12,7 @@ require(SGP)
 ### Load Data
 
 load("Data/WIDA_MA_SGP.Rdata")
-#load("Data/WIDA_MA_Data_LONG_2014.Rdata")
+load("Data/WIDA_MA_Data_LONG_2014.Rdata")
 
 
 ### Create config for percentiles and 1 projections
@@ -37,7 +37,6 @@ WIDA_MA_SGP <- updateSGP(
 		WIDA_MA_Data_LONG_2014,
 		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP", "visualizeSGP"),
 		sgp.percentiles=TRUE,
-		sgp.percentiles=FALSE,
 		sgp.projections=TRUE,
 		sgp.projections.lagged=TRUE,
 		sgp.percentiles.baseline=TRUE,

@@ -15,6 +15,11 @@ load("Data/WIDA_MA_SGP.Rdata")
 load("Data/WIDA_MA_Data_LONG_2013.Rdata")
 
 
+### Modify SGPstateData
+
+SGPstateData[["WIDA_MA"]][["Growth"]][["System_Type"]] <- "Cohort Referenced"
+
+
 ### Create config for percentiles and 1 projections
 
 READING_2013.config <- list(
@@ -32,7 +37,7 @@ READING_2013.config <- list(
 WIDA_MA_SGP <- updateSGP(
 		WIDA_MA_SGP,
 		WIDA_MA_Data_LONG_2013,
-		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP", "visualizeSGP"),
+		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
 		sgp.percentiles=TRUE,
 		sgp.projections=TRUE,
 		sgp.projections.lagged=TRUE,
