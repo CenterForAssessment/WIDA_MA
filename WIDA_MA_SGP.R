@@ -18,6 +18,7 @@ load("Data/WIDA_MA_Data_LONG.Rdata")
 
 ### NULL out SGPstateData stuff associated with 2013 data and assessment transition (hasn't happened yet when these analyses would have originally happened)
 
+SGPstateData[["WIDA_MA"]][["Growth"]][["System_Type"]] <- "Cohort Referenced"
 SGPstateData[["WIDA_MA"]][["Assessment_Program_Information"]][["Scale_Change"]] <- NULL
 SGPstateData[["WIDA_MA"]][["Achievement"]][["Cutscores"]][["READING.2013"]] <- NULL
 SGPstateData[["WIDA_MA"]][["Achievement"]][["Knots_Boundaries"]][["READING.2013"]] <- NULL
