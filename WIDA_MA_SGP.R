@@ -46,7 +46,7 @@ WIDA_MA_SGP <- abcSGP(
 		sgp.percentiles.baseline=FALSE,
 		sgp.projections.baseline=FALSE,
 		sgp.projections.lagged.baseline=FALSE,
-		save.intermediate.results=TRUE),
+		save.intermediate.results=TRUE,
 		parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=4, PROJECTIONS=4, LAGGED_PROJECTIONS=4, SGP_SCALE_SCORE_TARGETS=4)))
 
 
