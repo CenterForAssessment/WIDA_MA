@@ -26,7 +26,7 @@ READING_2015.config <- list(
                 sgp.projection.panel.years=c('2013', '2014', '2015'),
                 sgp.projection.baseline.panel.years=c('2014', '2015'),
                 sgp.grade.sequences=list(c('0', '1'), c('0', '1', '2'), c('0', '1', '2', '3'), c('1', '2', '3', '4'), c('2', '3', '4', '5'), c('3', '4', '5', '6'), c('4', '5', '6', '7'), c('5', '6', '7', '8'), c('6', '7', '8', '9'), c('7', '8', '9', '10'), c('8', '9', '10', '11'), c('9', '10', '11', '12')),
-                sgp.projection.grade.sequences=list('0', c('0', '1'), c('1', '2', '3'), c('2', '3', '4'), c('3', '4', '5'), c('4', '5', '6'), c('5', '6', '7'), c('6', '7', '8'), c('7', '8', '9'), c('8', '9', '10'), c('9', '10', '11'), c('10', '11', '12')),
+                sgp.projection.grade.sequences=list('0', c('0', '1'), c('1', '2', '3'), c('2', '3', '4'), c('3', '4', '5'), c('4', '5', '6'), c('5', '6', '7'), c('6', '7', '8'), c('7', '8', '9'), c('8', '9', '10'), c('9', '10', '11')),
                 sgp.projection.baseline.grade.sequences=list('0', c('0', '1'), c('1', '2'), c('2', '3'), c('3', '4'), c('4', '5'), c('5', '6'), c('6', '7'), c('7', '8'), c('8', '9'), c('9', '10'), c('10', '11'))))
 
 
@@ -49,4 +49,4 @@ WIDA_MA_SGP <- updateSGP(
 
 ### save ouput
 
-save(WIDA_MA_SGP, file="Data/WIDA_MA_SGP.Rdata")
+#save(WIDA_MA_SGP, file="Data/WIDA_MA_SGP.Rdata")
