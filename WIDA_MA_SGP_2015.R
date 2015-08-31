@@ -44,7 +44,7 @@ WIDA_MA_SGP <- updateSGP(
 		sgp.projections.lagged.baseline=TRUE,
 		sgp.config=READING_2015.config,
 		plot.types=c("studentGrowthPlot", "growthAchievementPlot"),
-		parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=4, PROJECTIONS=4, LAGGED_PROJECTIONS=4, SGP_SCALE_SCORE_TARGETS=4, GA_PLOTS=1, SG_PLOTS=1)))
+		parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=4, BASELINE_PERCENTILES=4, PROJECTIONS=4, LAGGED_PROJECTIONS=4, SGP_SCALE_SCORE_TARGETS=4, GA_PLOTS=1, SG_PLOTS=1)))
 
 
 ### save ouput
