@@ -49,6 +49,11 @@ setcolorder(WIDA_MA_Data_LONG, c(6,7,1,2,3,4,5))
 
 WIDA_MA_Data_LONG <- WIDA_MA_Data_LONG[!is.na(SCALE_SCORE)]
 
+
+### Create ACHIEVEMENT_LEVEL variable
+
+WIDA_MA_Data_LONG <- prepareSGP(WIDA_MA_Data_LONG)@Data
+
 ### Save data
 
 save(WIDA_MA_Data_LONG, file="Data/WIDA_MA_Data_LONG.Rdata")
