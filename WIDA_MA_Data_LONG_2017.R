@@ -20,14 +20,18 @@ WIDA_MA_Data_LONG <- as.data.table(read.spss("Data/Base_Files/Access17_long.sav"
 ### clean up data
 
 setnames(WIDA_MA_Data_LONG, toupper(names(WIDA_MA_Data_LONG)))
-setnames(WIDA_MA_Data_LONG, c("ID", "LAST_NAME", "FIRST_NAME", "DOB", "GRADE", "ACHIEVEMENT_LEVEL_ORIGINAL", "SCALE_SCORE", "GRADESPAN", "YEAR", "TEST_MODE"))
+setnames(WIDA_MA_Data_LONG, c("ID", "LAST_NAME", "FIRST_NAME", "DOB", "GRADE", "ACHIEVEMENT_LEVEL_ORIGINAL", "SCALE_SCORE", "GRADESPAN", "YEAR", "TEST_MODE", "ACHIEVEMENT_LEVEL_OLD_ORIGINAL"))
 
-WIDA_MA_Data_LONG <- subset(WIDA_MA_Data_LONG, select=c("YEAR", "ID", "GRADE", "ACHIEVEMENT_LEVEL_ORIGINAL", "SCALE_SCORE", "TEST_MODE"))
+WIDA_MA_Data_LONG <- subset(WIDA_MA_Data_LONG, select=c("YEAR", "ID", "GRADE", "ACHIEVEMENT_LEVEL_ORIGINAL", "SCALE_SCORE", "TEST_MODE", "ACHIEVEMENT_LEVEL_OLD_ORIGINAL"))
 levels(WIDA_MA_Data_LONG$YEAR) <- c("2013", "2014", "2015", "2016", "2017")
-WIDA_MA_Data_LONG$YEAR <- as.character(WIDA_MA_Data_LONG$YEAR)
-WIDA_MA_Data_LONG$ID <- as.character(WIDA_MA_Data_LONG$ID)
+WIDA_MA_Data_LONG[,YEAR:=as.character(YEAR)]
+WIDA_MA_Data_LONG[,ID:=as.character(ID)]
 levels(WIDA_MA_Data_LONG$GRADE) <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "0")
-WIDA_MA_Data_LONG$GRADE <- as.character(WIDA_MA_Data_LONG$GRADE)
+WIDA_MA_Data_LONG[,GRADE:=as.character(GRADE)]
+
+WIDA_MA_Data_LONG[,ACHIEVEMENT_LEVEL_ORIGINAL:=as.character(ACHIEVEMENT_LEVEL_ORIGINAL)]
+WIDA_MA_Data_LONG[YEAR=="2016",ACHIEVEMENT_LEVEL_ORIGINAL:=paste("WIDA Level", floor(ACHIEVEMENT_LEVEL_OLD_ORIGINAL))]
+WIDA_MA_Data_LONG[,ACHIEVEMENT_LEVEL_OLD_ORIGINAL:=NULL]
 levels(WIDA_MA_Data_LONG$TEST_MODE) <- c("", "Mixed", "Online", "Paper")
 WIDA_MA_Data_LONG[TEST_MODE=="", TEST_MODE:=NA]
 WIDA_MA_Data_LONG[, TEST_MODE:=droplevels(TEST_MODE)]
@@ -52,6 +56,7 @@ WIDA_MA_Data_LONG <- WIDA_MA_Data_LONG[!is.na(SCALE_SCORE)]
 ### Create ACHIEVEMENT_LEVEL variable
 
 WIDA_MA_Data_LONG <- prepareSGP(WIDA_MA_Data_LONG)@Data
+WIDA_MA_Data_LONG[YEAR=="2016", ACHIEVEMENT_LEVEL:=ACHIEVEMENT_LEVEL_ORIGINAL]
 
 ### Save data
 
