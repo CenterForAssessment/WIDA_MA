@@ -14,7 +14,7 @@ require(data.table)
 
 ### Load Data
 
-WIDA_MA_Data_LONG <- as.data.table(read.spss("Data/Base_Files/Access17_long.sav", to.data.frame=TRUE))
+WIDA_MA_Data_LONG <- as.data.table(read.spss("Data/Base_Files/Access17_long2.sav", to.data.frame=TRUE))
 
 
 ### clean up data
