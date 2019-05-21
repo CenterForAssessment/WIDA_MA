@@ -1,6 +1,6 @@
 ##########################################################################################
 ###
-### Script for calculating SGPs for 2017-2018 WIDA/ACCESS Massachusetts
+### Script for calculating SGPs for 2017-2019 WIDA/ACCESS Massachusetts
 ###
 ##########################################################################################
 
@@ -12,8 +12,7 @@ require(SGP)
 ### Load Data
 
 load("Data/WIDA_MA_SGP.Rdata")
-load("Data/WIDA_MA_Data_LONG_2018.Rdata")
-#load("Data/WIDA_MA_Data_LONG.Rdata")
+load("Data/WIDA_MA_Data_LONG_2019.Rdata")
 
 
 ### Run analyses
@@ -23,7 +22,7 @@ load("Data/WIDA_MA_Data_LONG_2018.Rdata")
 #		WIDA_MA_Data_LONG,
 WIDA_MA_SGP <- updateSGP(
 		WIDA_MA_SGP,
-		WIDA_MA_Data_LONG_2018,
+		WIDA_MA_Data_LONG_2019,
 		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
 		sgp.percentiles=TRUE,
 		sgp.projections=TRUE,
