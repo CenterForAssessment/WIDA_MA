@@ -20,6 +20,7 @@ load("Data/WIDA_MA_Data_LONG.Rdata")
 
 WIDA_MA_SGP <- abcSGP(
 		WIDA_MA_Data_LONG,
+		years="2019",
 #WIDA_MA_SGP <- updateSGP(
 #		WIDA_MA_SGP,
 #		WIDA_MA_Data_LONG_2019,
