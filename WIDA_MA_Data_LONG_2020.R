@@ -1,6 +1,6 @@
 ########################################################################################
 ###
-### Data preparation code for 2019 Access
+### Data preparation code for 2020 Access
 ###
 ########################################################################################
 
@@ -15,11 +15,11 @@ require(data.table)
 load("Data/Base_Files/WIDA_MA_Data_LONG.Rdata")
 
 
-### Subset 2019
+### Subset 2020
 
-WIDA_MA_Data_LONG_2019 <- WIDA_MA_Data_LONG[YEAR=="2019"]
+WIDA_MA_Data_LONG_2020 <- WIDA_MA_Data_LONG[YEAR=="2020"]
 
 
 ### Save data
 
-save(WIDA_MA_Data_LONG_2019, file="Data/WIDA_MA_Data_LONG_2019.Rdata")
+save(WIDA_MA_Data_LONG_2020, file="Data/WIDA_MA_Data_LONG_2020.Rdata")
