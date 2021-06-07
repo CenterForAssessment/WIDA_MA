@@ -5,18 +5,17 @@
 ##########################################################################################
 
 ### Load SGP package
-
 require(SGP)
 
 
 ### Load Data
-
 load("Data/WIDA_MA_SGP.Rdata")
 load("Data/WIDA_MA_Data_LONG_2021.Rdata")
 
+###   Add single-cohort baseline matrices to SGPstateData
+SGPstateData <- SGPmatrices::addBaselineMatrices("WIDA_MA", "2021")
+
 ### Run analyses
-
-
 WIDA_MA_SGP <- updateSGP(
 		WIDA_MA_SGP,
 		WIDA_MA_Data_LONG_2021,
