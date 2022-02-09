@@ -7,7 +7,6 @@
 ### Load SGP package
 require(SGP)
 
-
 ### Load Data
 load("Data/WIDA_MA_SGP.Rdata")
 load("Data/WIDA_MA_Data_LONG_2021.Rdata")
@@ -31,6 +30,5 @@ WIDA_MA_SGP <- updateSGP(
 		save.intermediate.results=FALSE,
 		parallel.config=list(BACKEND="PARALLEL", WORKERS=list(PERCENTILES=4, BASELINE_PERCENTILES=4, PROJECTIONS=4, LAGGED_PROJECTIONS=4, SGP_SCALE_SCORE_TARGETS=4, GA_PLOTS=1, SG_PLOTS=1)))
 
-
 ### Save results
-save(WIDA_MA_SGP, file="Data/WIDA_MA_SGP.Rdata")
+#save(WIDA_MA_SGP, file="Data/WIDA_MA_SGP.Rdata")

@@ -24,6 +24,10 @@ WIDA_MA_Data_LONG_2021 <- WIDA_MA_Data_LONG_2021[,..variables.to.keep]
 
 levels(WIDA_MA_Data_LONG_2021$TEST_MODE) <- c("Mixed", "Online", "Paper", "Paper", "Mixed")
 
+### Check for duplicates 
+#table(duplicated(WIDA_MA_Data_LONG_2021, by=c("VALID_CASE", "CONTENT_AREA", "YEAR", "ID"))) ### NONE
+
+
 ### Save data
 
 save(WIDA_MA_Data_LONG_2021, file="Data/WIDA_MA_Data_LONG_2021.Rdata")
