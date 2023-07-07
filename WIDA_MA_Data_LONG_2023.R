@@ -15,7 +15,7 @@ require(SGP)
 
 ### Load Data
 
-WIDA_MA_Data_LONG_2023 <- as.data.table(read.spss("Data/Base_Files/ACCESS22_long.sav", to.data.frame=TRUE))
+WIDA_MA_Data_LONG_2023 <- as.data.table(read.spss("Data/Base_Files/ACCESS23_long.sav", to.data.frame=TRUE))
 
 
 ### Select out variables
