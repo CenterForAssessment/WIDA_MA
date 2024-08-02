@@ -23,7 +23,7 @@ SGPstateData <- SGPmatrices::addBaselineMatrices("WIDA_MA", "2024")
 WIDA_MA_SGP <- updateSGP(
   what_sgp_object=WIDA_MA_SGP_23,
   with_sgp_data_LONG=WIDA_MA_Data_LONG_2024,
-  steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
+  steps=c("prepareSGP", "analyzeSGP", "combineSGP"),
   sgp.percentiles=TRUE,
   sgp.projections=FALSE,
   sgp.projections.lagged=FALSE,
