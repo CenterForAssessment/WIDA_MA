@@ -1,10 +1,10 @@
-##########################################################################
+#######################################################################################################
 ###
 ### Script to run 2024 analyses
 ### STEP 1: Percentiles (cohort and baseline referenced)
-### STEP 2: Projections (cohort and baseline referenced/lagged and current)
+### STEP 2: Projections (cohort and baseline referenced/lagged and current) using adjusted grades
 ###
-##########################################################################
+#######################################################################################################
 
 ### Load packages
 require(SGP)
