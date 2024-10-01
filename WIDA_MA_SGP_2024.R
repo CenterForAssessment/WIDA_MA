@@ -59,11 +59,11 @@ save(WIDA_MA_SGP, file="Data/WIDA_MA_SGP.Rdata")
 WIDA_MA_Formatted_Output_2024 <- copy(WIDA_MA_SGP@Data[YEAR=="2024"])
 
 ### Convert CURRENT SCALE_SCORE_TARGETS to PROFICIENCY_TARGETS
-WIDA_MA_Formatted_Output_2024[, PROFICIENCY_LEVEL_SGP_TARGET_BASELINE_5_YEAR_PROJ_YEAR_1_CURRENT:=SGPstateData[['WIDA']][['SGP_Configuration']][['ss_to_pl_function']][['value']](as.character(as.numeric(GRADE)+1), SCALE_SCORE_SGP_TARGET_BASELINE_5_YEAR_PROJ_YEAR_1_CURRENT)]
-WIDA_MA_Formatted_Output_2024[, PROFICIENCY_LEVEL_SGP_TARGET_BASELINE_4_YEAR_PROJ_YEAR_1_CURRENT:=SGPstateData[['WIDA']][['SGP_Configuration']][['ss_to_pl_function']][['value']](as.character(as.numeric(GRADE)+1), SCALE_SCORE_SGP_TARGET_BASELINE_4_YEAR_PROJ_YEAR_1_CURRENT)]
-WIDA_MA_Formatted_Output_2024[, PROFICIENCY_LEVEL_SGP_TARGET_BASELINE_3_YEAR_PROJ_YEAR_1_CURRENT:=SGPstateData[['WIDA']][['SGP_Configuration']][['ss_to_pl_function']][['value']](as.character(as.numeric(GRADE)+1), SCALE_SCORE_SGP_TARGET_BASELINE_3_YEAR_PROJ_YEAR_1_CURRENT)]
-WIDA_MA_Formatted_Output_2024[, PROFICIENCY_LEVEL_SGP_TARGET_BASELINE_2_YEAR_PROJ_YEAR_1_CURRENT:=SGPstateData[['WIDA']][['SGP_Configuration']][['ss_to_pl_function']][['value']](as.character(as.numeric(GRADE)+1), SCALE_SCORE_SGP_TARGET_BASELINE_2_YEAR_PROJ_YEAR_1_CURRENT)]
-WIDA_MA_Formatted_Output_2024[, PROFICIENCY_LEVEL_SGP_TARGET_BASELINE_1_YEAR_PROJ_YEAR_1_CURRENT:=SGPstateData[['WIDA']][['SGP_Configuration']][['ss_to_pl_function']][['value']](as.character(as.numeric(GRADE)+1), SCALE_SCORE_SGP_TARGET_BASELINE_1_YEAR_PROJ_YEAR_1_CURRENT)]
+WIDA_MA_Formatted_Output_2024[, PROFICIENCY_LEVEL_SGP_TARGET_BASELINE_5_YEAR_PROJ_YEAR_1_CURRENT:=SGPstateData[['WIDA']][['SGP_Configuration']][['ss_to_pl_function']][['value']](as.character(as.numeric(GRADE)+1), ceiling(SCALE_SCORE_SGP_TARGET_BASELINE_5_YEAR_PROJ_YEAR_1_CURRENT))]
+WIDA_MA_Formatted_Output_2024[, PROFICIENCY_LEVEL_SGP_TARGET_BASELINE_4_YEAR_PROJ_YEAR_1_CURRENT:=SGPstateData[['WIDA']][['SGP_Configuration']][['ss_to_pl_function']][['value']](as.character(as.numeric(GRADE)+1), ceiling(SCALE_SCORE_SGP_TARGET_BASELINE_4_YEAR_PROJ_YEAR_1_CURRENT))]
+WIDA_MA_Formatted_Output_2024[, PROFICIENCY_LEVEL_SGP_TARGET_BASELINE_3_YEAR_PROJ_YEAR_1_CURRENT:=SGPstateData[['WIDA']][['SGP_Configuration']][['ss_to_pl_function']][['value']](as.character(as.numeric(GRADE)+1), ceiling(SCALE_SCORE_SGP_TARGET_BASELINE_3_YEAR_PROJ_YEAR_1_CURRENT))]
+WIDA_MA_Formatted_Output_2024[, PROFICIENCY_LEVEL_SGP_TARGET_BASELINE_2_YEAR_PROJ_YEAR_1_CURRENT:=SGPstateData[['WIDA']][['SGP_Configuration']][['ss_to_pl_function']][['value']](as.character(as.numeric(GRADE)+1), ceiling(SCALE_SCORE_SGP_TARGET_BASELINE_2_YEAR_PROJ_YEAR_1_CURRENT))]
+WIDA_MA_Formatted_Output_2024[, PROFICIENCY_LEVEL_SGP_TARGET_BASELINE_1_YEAR_PROJ_YEAR_1_CURRENT:=SGPstateData[['WIDA']][['SGP_Configuration']][['ss_to_pl_function']][['value']](as.character(as.numeric(GRADE)+1), ceiling(SCALE_SCORE_SGP_TARGET_BASELINE_1_YEAR_PROJ_YEAR_1_CURRENT))]
 
 ### Select CURRENT PROFICIENCY_TARGETS based upon YEARS_IN_MASS
 WIDA_MA_Formatted_Output_2024[YEARS_IN_MA==1, ACCOUNTABILITY_PROFICIENCY_LEVEL_TARGET_CURRENT:=PROFICIENCY_LEVEL_SGP_TARGET_BASELINE_5_YEAR_PROJ_YEAR_1_CURRENT]
