@@ -14,6 +14,9 @@ variables.to.keep <-  c("VALID_CASE", "CONTENT_AREA", "YEAR", "GRADE", "ID", "SC
 # Subset data
 WIDA_MA_Data_LONG_2024 <- WIDA_MA_SGP@Data[YEAR == "2024", variables.to.keep, with = FALSE]
 
+# Correct ACHIEVEMENT_LEVEL
+WIDA_MA_Data_LONG_2024[ACHIEVEMENT_LEVEL_ORIGINAL %in% c("4.2", "4.3", "4.4", "4.5", "4.6", "4.7", "4.8", "4.9"), ACHIEVEMENT_LEVEL:="WIDA Level 4.2"]
+
 # Setkey and save data
 setkey(WIDA_MA_Data_LONG_2024, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID)
 save(WIDA_MA_Data_LONG_2024, file = "Data/WIDA_MA_Data_LONG_2024.Rdata")
