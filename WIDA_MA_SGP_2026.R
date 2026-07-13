@@ -1,10 +1,9 @@
 #######################################################################################################
 ###
 ### Script to run 2026 analyses
-### STEP 1: Percentiles (cohort referenced)
-### STEP 2: Projections (cohort referenced/lagged and current) using adjusted grades
-### STEP 3: Percentiles (baseline referenced) using 2026 scores mapped to OLD scale
-### STEP 4: Projections (baseline referenced/lagged and current) using adjusted grades and 2026 scores mapped to OLD scale
+### STEP 1: Percentiles (cohort referenced) NOTE: No cohort referenced projections due to scale change
+### STEP 2: Percentiles (baseline referenced) using 2026 scores mapped to OLD scale
+### STEP 3: Projections (baseline referenced/lagged and current) using adjusted grades and 2026 scores mapped to OLD scale
 ###
 #######################################################################################################
 
@@ -43,27 +42,7 @@ WIDA_MA_SGP <- updateSGP(
   save.intermediate.results=FALSE)
 
 ####################################################
-### STEP 2: Run analyses to calculate cohort referenced projections (swapping GRADE and GRADE_ADJUSTED)
-####################################################
-setnames(WIDA_MA_SGP@Data, c("GRADE", "GRADE_ADJUSTED"), c("GRADE_ADJUSTED", "GRADE"))
-
-WIDA_MA_SGP <- abcSGP(
-  sgp_object=WIDA_MA_SGP,
-  steps=c("prepareSGP", "analyzeSGP", "combineSGP"),
-  years="2026",
-  sgp.percentiles=FALSE,
-  sgp.projections=TRUE,
-  sgp.projections.lagged=TRUE,
-  sgp.percentiles.baseline=FALSE,
-  sgp.projections.baseline=FALSE,
-  sgp.projections.lagged.baseline=FALSE,
-  sgp.target.scale.scores=TRUE,
-  parallel.config=parallel.config)
-
-setnames(WIDA_MA_SGP@Data, c("GRADE", "GRADE_ADJUSTED"), c("GRADE_ADJUSTED", "GRADE"))
-
-####################################################
-### STEP 3: Run analyses to calculate baseline referenced percentiles (swapping SCALE_SCORE and SCALE_SCORE_OLD_SCALE)
+### STEP 2: Run analyses to calculate baseline referenced percentiles (swapping SCALE_SCORE and SCALE_SCORE_OLD_SCALE)
 ####################################################
 WIDA_MA_SGP@Data[YEAR<"2026", SCALE_SCORE_OLD_SCALE:=SCALE_SCORE]
 setnames(WIDA_MA_SGP@Data, c("SCALE_SCORE", "SCALE_SCORE_OLD_SCALE"), c("SCALE_SCORE_OLD_SCALE", "SCALE_SCORE"))
@@ -82,7 +61,7 @@ WIDA_MA_SGP <- abcSGP(
   parallel.config=parallel.config)
 
 ####################################################
-### STEP 4: Run analyses to calculate baseline referenced projections (swapping SCALE_SCORE and SCALE_SCORE_OLD_SCALE)
+### STEP 3: Run analyses to calculate baseline referenced projections (swapping SCALE_SCORE and SCALE_SCORE_OLD_SCALE)
 ####################################################
 setnames(WIDA_MA_SGP@Data, c("GRADE", "GRADE_ADJUSTED"), c("GRADE_ADJUSTED", "GRADE"))
 
