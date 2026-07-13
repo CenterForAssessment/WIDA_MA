@@ -88,7 +88,7 @@ setnames(WIDA_MA_SGP@Data, c("GRADE", "GRADE_ADJUSTED"), c("GRADE_ADJUSTED", "GR
 
 WIDA_MA_SGP <- abcSGP(
   sgp_object=WIDA_MA_SGP,
-  steps=c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
+  steps=c("prepareSGP", "analyzeSGP", "combineSGP"),
   years="2026",
   sgp.percentiles=FALSE,
   sgp.projections=FALSE,
@@ -143,5 +143,5 @@ save(WIDA_MA_Formatted_Output_2026, file="Data/WIDA_MA_Formatted_Output_2026.Rda
 
 ### Save SGP object
 setkey(WIDA_MA_SGP@Data, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID)
-save(WIDA_MA_SGP, file="Data/WIDA_MA_SGP.Rdata")
+#save(WIDA_MA_SGP, file="Data/WIDA_MA_SGP.Rdata")
 
