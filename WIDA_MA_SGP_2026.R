@@ -122,5 +122,5 @@ save(WIDA_MA_Formatted_Output_2026, file="Data/WIDA_MA_Formatted_Output_2026.Rda
 
 ### Save SGP object
 setkey(WIDA_MA_SGP@Data, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID)
-#save(WIDA_MA_SGP, file="Data/WIDA_MA_SGP.Rdata")
+save(WIDA_MA_SGP, file="Data/WIDA_MA_SGP.Rdata")
 
